@@ -1,0 +1,105 @@
+<mxfile host="65bd71144e">
+    <diagram id="c41_z4_GsjBGDIU7O2qk" name="front">
+        <mxGraphModel dx="1235" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="forbiden" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="10" width="170" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="*alloc()&lt;br&gt;" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="30" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="free()" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="60" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="*printf()" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="90" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="C++11 and derived forms" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="120" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="boost liberies" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+                    <mxGeometry y="150" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="using namespace &amp;lt;name&amp;gt;" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;" vertex="1" parent="2">
+                    <mxGeometry y="180" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="13">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="630" y="340" as="sourcePoint"/>
+                        <mxPoint x="890" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="&lt;h1&gt;Boost&lt;/h1&gt;&lt;p&gt;&lt;span lang=&quot;en&quot; class=&quot;ILfuVd&quot;&gt;Boost is a set of &lt;br&gt;libraries for the C++ programming language that provides support for &lt;br&gt;tasks and structures such as linear algebra, pseudorandom number &lt;br&gt;generation, multithreading, image processing, regular expressions, and &lt;br&gt;unit testing. It contains 164 individual libraries (as of version 1.76).&lt;/span&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=1;glass=0;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="30" width="340" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="compile flages" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;glass=0;strokeColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="70" width="140" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="-Werror" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;" vertex="1" parent="17">
+                    <mxGeometry y="30" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="-Wall" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;" vertex="1" parent="17">
+                    <mxGeometry y="60" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="-Wextra" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;" vertex="1" parent="17">
+                    <mxGeometry y="90" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;span dir=&quot;ltr&quot; role=&quot;presentation&quot; style=&quot;left: 60.1%; top: 36.63%; font-size: calc(var(--scale-factor)*11.96px); font-family: sans-serif; transform: scaleX(1.02268);&quot;&gt;-std=c++98&lt;/span&gt;" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;" vertex="1" parent="17">
+                    <mxGeometry y="120" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;h1&gt;&lt;span style=&quot;font-family: monospace; text-align: center; background-color: initial; font-size: 12px; font-weight: normal;&quot;&gt;-std=c++98 -pedantic-error&lt;/span&gt;&lt;br&gt;&lt;/h1&gt;&lt;p&gt;&lt;span style=&quot;font-family: monospace; text-align: center;&quot;&gt;to ensure standart compliance&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;monospace&quot;&gt;use docker for it not on mac&lt;/font&gt;&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=1;glass=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="91" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="endArrow=classic;html=1;fontColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="25">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="270" y="160" as="sourcePoint"/>
+                        <mxPoint x="320" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="Random Things" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;glass=0;strokeColor=default;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="1205" y="100" width="140" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="every output needs to end with a newline" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;fontColor=#FFFFFF;" vertex="1" parent="28">
+                    <mxGeometry y="30" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="use UberCamelCase for class names" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;fontColor=#FFFFFF;" vertex="1" parent="28">
+                    <mxGeometry y="60" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="endArrow=classic;html=1;fontColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="22" target="u6gYOgt2THiygX7gGlbj-35">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="630" y="340" as="sourcePoint"/>
+                        <mxPoint x="770" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="u6gYOgt2THiygX7gGlbj-35" value="&lt;h1&gt;&lt;a href=&quot;data:page/id,sAgXXEJwA3NCpck10kdQ&quot;&gt;namespace&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;span dir=&quot;ltr&quot; role=&quot;presentation&quot; style=&quot;left: 35.76%; top: 50.07%; font-size: calc(var(--scale-factor)*11.96px); font-family: sans-serif; transform: scaleX(1.07657);&quot;&gt;namespace is allowed but not the keyword using for setting namespace in side of a scope there is no unused namespace&lt;/span&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=1;glass=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="810" y="260" width="190" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="files containing class code are always name afte the class&lt;br&gt;" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;rounded=0;glass=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="1205" y="190" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="u6gYOgt2THiygX7gGlbj-36" value="&lt;h1&gt;example&lt;/h1&gt;&lt;p&gt;class -&amp;gt; BrickWall&lt;/p&gt;&lt;font face=&quot;sans-serif&quot;&gt;= BrickWall.hpp / BrickWall.cpp BrickWall.tpp&lt;/font&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=1;glass=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="1430" y="180" width="190" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="u6gYOgt2THiygX7gGlbj-37" value="" style="endArrow=classic;html=1;fontColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="31" target="u6gYOgt2THiygX7gGlbj-36">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1270" y="400" as="sourcePoint"/>
+                        <mxPoint x="1320" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="sAgXXEJwA3NCpck10kdQ" name="namespace">
+        <mxGraphModel dx="1235" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="HQtr0YuISjJE5Lp2CQBH-1" value="me" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;glass=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="340" width="60" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
