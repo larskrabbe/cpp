@@ -1,6 +1,6 @@
 FLAGS = -Werror -Wall -Wextra -std=c++98
 
-CC = clang++
+CC = c++
 
 all:
 	$(CC) $(FLAGS) megaphone.cpp  -o megaphone

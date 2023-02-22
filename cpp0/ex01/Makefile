@@ -2,7 +2,7 @@ NAME = phonebook
 
 FLAGS = -Werror -Wall -Wextra -std=c++98
 
-CC = clang++
+CC = c++
 
 all:
 	$(CC) $(FLAGS) *.cpp  -o $(NAME)
