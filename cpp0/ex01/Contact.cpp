@@ -19,7 +19,7 @@ void Contact::fill_contact(void)
 	this->nick_name = get_input("Nickname");
 	this->number = get_input("Phonenumber");
 	this->secret = get_input("Darkest Secret");
-	print_contact();
+	print_contact(1);
 }
 
 static std::string normlaize_string(std::string str)
@@ -34,10 +34,17 @@ static std::string normlaize_string(std::string str)
 	return (str);
 }		
 
-void Contact::print_contact()
+void Contact::print_contact(int index)
 {
-	normlaize_string(this->first_name);
-	std::cout << this->first_name << std::endl;
+	std::string out_put(1);
+	out_put.append = "         " + out_put;
+	out_put += "|";
+	out_put += normlaize_string(this->first_name);
+	out_put += "|";
+	out_put += normlaize_string(this->last_name);
+	out_put += "|";
+	out_put += normlaize_string(this->nick_name);
+	std::cout << out_put << std::endl;
 }
 
 Contact::Contact()

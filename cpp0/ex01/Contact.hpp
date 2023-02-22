@@ -18,7 +18,7 @@ class Contact
 					Contact(/* args */);
 					~Contact();
 		void	fill_contact();
-		void	print_contact();
+		void	print_contact(int index);
 };
 
 #endif
