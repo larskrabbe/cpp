@@ -22,10 +22,13 @@ int main()
 	{
 		valid_command();
 		std::cin >> str;
+		
 		if (str.compare("EXIT") == 0)
 			break ;
 		if (str.compare("ADD") == 0)
 			book.add_contact();
+		if (str.compare("SEARCH") == 0)
+			book.search_contact();
 	}
 	
 }

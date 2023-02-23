@@ -4,22 +4,24 @@
 
 static std::string get_input(std::string prompt = "no_prompt")
 {
-	std::string	buffer;
 
-	std::cout << "<\033[1;32m" << prompt << "\033[0m>";
-	std::cin >> buffer;
+	std::cout << "<\033[1;32m" + prompt + "\033[0m>";
+	//std::cout.clear();
+	//std::cin.clear();
+	// std::cin.getline(buffer,256);
+	std::string	buffer;
+	std::getline(std::cin, buffer);
+	// std::cin >> buffer;
 	return (buffer);
 }
 
 void Contact::fill_contact(void)
 {
-	std::string	buffer;
 	this->first_name = get_input("First Name");
 	this->last_name = get_input("Last Name");
 	this->nick_name = get_input("Nickname");
 	this->number = get_input("Phonenumber");
 	this->secret = get_input("Darkest Secret");
-	print_contact(1);
 }
 
 static std::string normlaize_string(std::string str)
@@ -34,10 +36,20 @@ static std::string normlaize_string(std::string str)
 	return (str);
 }		
 
+void Contact::print_contact()
+{
+	std::cout << "<\033[1;32mFull Contact Info\033[0m>" << std::endl;
+	std::cout << "\033[1;32m First Name      : \033[0m" << this->first_name << std::endl;
+	std::cout << "\033[1;32m Last Name       : \033[0m" << this->last_name << std::endl;
+	std::cout << "\033[1;32m Nickname        : \033[0m" << this->nick_name << std::endl;
+	std::cout << "\033[1;32m Phonenumber     : \033[0m" << this->number << std::endl;
+	std::cout << "\033[1;32m Darkest Secrest : \033[0m" << this->secret << std::endl;
+}
+
 void Contact::print_contact(int index)
 {
-	std::string out_put(1);
-	out_put.append = "         " + out_put;
+	std::string out_put = "         ";
+	out_put.append(1, char(index + '0'));//needs atoi here to make it better
 	out_put += "|";
 	out_put += normlaize_string(this->first_name);
 	out_put += "|";
