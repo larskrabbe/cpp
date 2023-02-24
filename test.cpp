@@ -1,10 +1,15 @@
-void print(int a = 1, int b = 2)
-{
-	a = a + b;
-}
+class A{
+	private:
+		static int		num;
+		char			c;
+	public:
+		static void	count(int num) ;
+		A();
+		~A();
+};
 
-int main()
+
+void count(int num)
 {
-	print();
-	return (0);
+	
 }

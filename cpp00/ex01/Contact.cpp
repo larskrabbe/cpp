@@ -5,13 +5,10 @@
 static std::string get_input(std::string prompt = "no_prompt")
 {
 
-	std::cout << "<\033[1;32m" + prompt + "\033[0m>";
-	//std::cout.clear();
-	//std::cin.clear();
-	// std::cin.getline(buffer,256);
 	std::string	buffer;
-	std::getline(std::cin, buffer);
-	// std::cin >> buffer;
+	while (buffer.length() == 0)
+{		std::cout << "<\033[1;32m" + prompt + "\033[0m>";
+		std::getline(std::cin, buffer);}
 	return (buffer);
 }
 

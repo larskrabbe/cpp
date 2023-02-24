@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME = Account
 
 FLAGS = -Werror -Wall -Wextra -std=c++98
 
@@ -11,6 +11,6 @@ clean:
 	rm -f $(NAME)
 
 run: all
-	./$(phonebook)
+	./$(NAME)
 
 re:clean all	

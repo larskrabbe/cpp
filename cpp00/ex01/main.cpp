@@ -21,8 +21,7 @@ int main()
 	while (1)
 	{
 		valid_command();
-		std::cin >> str;
-		
+		std::getline(std::cin, str);
 		if (str.compare("EXIT") == 0)
 			break ;
 		if (str.compare("ADD") == 0)
