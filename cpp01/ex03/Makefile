@@ -1,4 +1,4 @@
-NAME = unnecessary_violence
+NAME = Humans
 
 FLAGS = -Werror -Wall -Wextra -std=c++98
 
