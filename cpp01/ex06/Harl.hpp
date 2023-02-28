@@ -7,16 +7,16 @@
 class Harl
 {
 	private:
-		int				ignore;
 		void			debug( void );
 		void			info( void );
 		void			warning( void );
 		void			error( void );
+		void			empty_func( void );
 		void			(Harl::* member_ptr[4])( void );
 		std::string		member_str[4];
 	public:
-		void			complain( void );
-		Harl(int ignore = 1);
+		void			complain( std::string ignore );
+		Harl(std::string ignore = "Debug");
 		~Harl();
 };
 
