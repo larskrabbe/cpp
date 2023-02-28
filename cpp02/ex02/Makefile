@@ -1,4 +1,4 @@
-NAME = Horde
+NAME = Hyperion
 
 FLAGS = -Werror -Wall -Wextra -std=c++98
 
