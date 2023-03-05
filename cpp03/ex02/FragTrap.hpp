@@ -1,10 +1,10 @@
 
-#ifndef CLASS_ScavTrap
-# define CLASS_ScavTrap
+#ifndef CLASS_FragTrap
+# define CLASS_FragTrap
 
 #include	"ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 	private:
 		std::string				name;
@@ -16,12 +16,12 @@ class ScavTrap : public ClapTrap
 		virtual void			print_action(e_msg msg, unsigned int);
 	public:
 		void					attack( const std::string& target );
-		void					guardGate( void );
-		ScavTrap();
-		ScavTrap(std::string);
-		ScavTrap(const ScavTrap&);
-		~ScavTrap();
-		ScavTrap &operator= (const ScavTrap& a);
+		void					highFivesGuys( void );
+		FragTrap();
+		FragTrap(std::string);
+		FragTrap(const FragTrap&);
+		~FragTrap();
+		FragTrap &operator= (const FragTrap& a);
 };
 
 #endif

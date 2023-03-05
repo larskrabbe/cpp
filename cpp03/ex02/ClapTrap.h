@@ -11,6 +11,7 @@ enum e_msg{
 	msg_repaired,
 	msg_equal,
 	msg_guard,
+	msg_high_five,
 };
 
 

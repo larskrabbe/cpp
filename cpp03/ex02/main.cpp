@@ -1,10 +1,10 @@
 
 #include	<string>
-#include	"ScavTrap.hpp"
+#include	"FragTrap.hpp"
 
 int	main( void )
 {
-	ScavTrap bot1("Marwin");
+	FragTrap bot1("Marwin");
 	bot1.attack("someone");
 	bot1.attack("someone");
 	bot1.attack("someone");
@@ -26,7 +26,7 @@ int	main( void )
 	bot1.takeDamage(2);
 	bot1.takeDamage(2);
 	bot1.takeDamage(2);
-	bot1.guardGate();
+	bot1.highFivesGuys();
 	bot1.attack("no+one");
 	return (0);
 }
