@@ -1,6 +1,7 @@
 #include "Account.hpp"
 #include <iostream>
-
+#include <ctime>
+#include <iomanip>
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
@@ -25,11 +26,14 @@ int		Account::getNbWithdrawals( void )
 {
 	return (Account::_totalNbWithdrawals);
 }
+
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[19920104_091532] ";
-}
+	std::time_t t = std::time(nullptr);
+	std::tm tm = *std::localtime(&t);
 
+	std::cout << "[" << std::put_time(&tm, "%Y%d%m_%H%M%S") << "] "; 
+}
 Account::Account( void )
 {
 	this->_accountIndex = Account::_nbAccounts;

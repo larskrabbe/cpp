@@ -32,7 +32,7 @@ void PhoneBook::search_contact(void)
 		std::cin >> buffer;// need atoi here to improve
 		if (buffer.length() != 1)
 			std::cout << "\033[1;31mInvalid Index\033[0m" << std::endl;
-		else if (buffer.at(0) - '0' > this->total)
+		else if (buffer.at(0) - '0' > this->total-1)
 			std::cout << "\033[1;31mIndex Outside Range\033[0m" << std::endl;
 		else
 		{

@@ -9,7 +9,7 @@
 void	valid_command()
 {
 	std::cout << "ADD : to add a Contact"  << std::endl;
-	std::cout << "SEARCH : "  << std::endl;
+	std::cout << "SEARCH : look for a Contacts information"  << std::endl;
 	std::cout << "EXIT : to end the process"  << std::endl;
 
 }

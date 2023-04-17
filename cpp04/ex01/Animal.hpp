@@ -3,10 +3,11 @@
 # define CLASS_Animal
 
 #include	<string>
-
+#include	"Brain.hpp"
 class Animal
 {
-	public:
+	private:
+		Brain* Brain;
 	protected:
 		std::string			type;
 	public:
