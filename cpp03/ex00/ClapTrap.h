@@ -1,4 +1,7 @@
 
+#ifndef ClapTrap_h
+# define ClapTrap_h
+
 enum e_msg{
 	msg_default_construct,
 	msg_copy_construct,
@@ -12,5 +15,6 @@ enum e_msg{
 	msg_equal,
 };
 
+#endif
 
 

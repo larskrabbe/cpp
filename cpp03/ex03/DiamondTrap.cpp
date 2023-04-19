@@ -72,22 +72,20 @@ void	DiamondTrap::print_action(e_msg msg, unsigned int add)
 // this is just here to pass the eval.
 void	DiamondTrap::attack(const std::string& target)
 {
-	if (this->EnergyCheck() || this->HealthCheck())
-		return ;
-	this->Energy_points--;
-	this->print_action(msg_attack, target);
+	ScavTrap::attack(target);
 }
 
-void	DiamondTrap::highFivesGuys( void )
-{
-	if (this->EnergyCheck() || this->HealthCheck())
-		return ;
-	print_action(msg_high_five);
-}
+// void	DiamondTrap::highFivesGuys( void )
+// {
+// 	if (this->EnergyCheck() || this->HealthCheck())
+// 		return ;
+// 	print_action(msg_high_five);
+// }
 
 DiamondTrap::DiamondTrap()
 {
-	this->name = "\"FragBitch\"";
+	std::cout << "Diamond "<< this << std::endl;
+	this->name = "\"DiamondTrap\"";
 	this->Hit_points = 100;
 	this->Attack_damage = 30;
 	this->Energy_points = 100;
@@ -96,8 +94,8 @@ DiamondTrap::DiamondTrap()
 
 DiamondTrap::DiamondTrap(std::string name) : name(name)
 {
-	this->Hit_points = 100;
-	this->Attack_damage = 30;
+	this->Hit_points = FragTrap::Hit_points;
+	this->Attack_damage = FragTrap::Attack_damage;
 	this->Energy_points = 100;
 	print_action(msg_string_construct);
 }
@@ -126,3 +124,7 @@ DiamondTrap& DiamondTrap::operator= (const DiamondTrap& a)
 	return (*this);	
 }
 
+void	DiamondTrap::whoAmI( void )
+{
+	print_action(msg_who_am_i);
+}

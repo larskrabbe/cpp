@@ -3,9 +3,12 @@
 
 int main()
 {
-	Fixed	data;
+	Fixed	a;
+	Fixed	b(a);
+	Fixed	c;
 
-	std::cout << data._getRawBits() << std::endl;
-	data._setRawBits(100);
-	std::cout << data._getRawBits() << std::endl;
+	c = b;
+	std::cout << a._getRawBits() << std::endl;
+	std::cout << b._getRawBits() << std::endl;
+	std::cout << c._getRawBits() << std::endl;
 }

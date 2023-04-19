@@ -88,7 +88,7 @@ bool	ClapTrap::HealthCheck( void )
 
 ClapTrap::ClapTrap()
 {
-	this->name = "\"Bitch\"";
+	this->name = "\"ClapTrap\"";
 	this->Hit_points = 10;
 	this->Attack_damage = 0;
 	this->Energy_points = 10;
@@ -143,5 +143,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap& ClapTrap::operator= (const ClapTrap& a)
 {
-
+	this->Attack_damage = a.Attack_damage;
+	this->Energy_points = a.Energy_points;
+	this->Hit_points = a.Hit_points;
+	this->name = a.name;
+	return (*this);
 }

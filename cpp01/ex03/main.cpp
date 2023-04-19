@@ -9,14 +9,14 @@ int main()
 		Weapon club = Weapon();
 		HumanA alpha("Apple Jack",club);
 		alpha.attack();
-		club.setType("Apple ont a stick");
+		club.setType("Apple on a stick");
 		alpha.attack();
 	}
 	{
 		Weapon gun = Weapon("Gun");
 		HumanB beta("Bert das Brot");
-		beta.setWeapon(gun);
 		beta.attack();
+		beta.setWeapon(gun);
 		gun.setType("shoe");
 		beta.attack();
 	}

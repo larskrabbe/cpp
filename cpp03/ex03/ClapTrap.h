@@ -12,6 +12,7 @@ enum e_msg{
 	msg_equal,
 	msg_guard,
 	msg_high_five,
+	msg_who_am_i,
 };
 
 

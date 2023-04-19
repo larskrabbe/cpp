@@ -8,8 +8,8 @@ class Fixed
 		int 				_value;
 		static const int	_frac = 8;
 	public:
-		int					_getRawBits( void );
-		void				_setRawBits( int );
+		int					_getRawBits( void ) const;
+		void				_setRawBits( const int bits );
 		Fixed();
 		Fixed(const Fixed &a);
 		~Fixed();

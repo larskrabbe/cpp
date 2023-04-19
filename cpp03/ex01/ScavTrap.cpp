@@ -16,7 +16,7 @@ void	ScavTrap::print_action(e_msg msg)
 			std::cout << "ScavTrap " << this->name << " has no Energy left" << std::endl;
 		break;
 		case(msg_no_health):
-			std::cout << "ScavTrap " << this->name << " needs a  Screwdriver "<< std::endl;
+			std::cout << "ScavTrap " << this->name << " needs a Screwdriver "<< std::endl;
 		break;
 		case(msg_string_construct):
 			std::cout << "The ScavTrap " << this->name << " got created." << std::endl;
@@ -25,7 +25,7 @@ void	ScavTrap::print_action(e_msg msg)
 			std::cout << "ScavTrap " << this->name << " went home  "<<std::endl;
 		break;
 		case(msg_equal):
-			std::cout << "ScavTrap" << this->name << "information got overwritten" << std::endl;
+			std::cout << "ScavTrap" << this->name << " information got overwritten" << std::endl;
 		break;
 		case(msg_guard):
 			std::cout << "ScavTrap " << this->name << " is in guarding the gate" << std::endl;
@@ -84,7 +84,7 @@ void	ScavTrap::guardGate( void )
 
 ScavTrap::ScavTrap()
 {
-	this->name = "\"scavBitch\"";
+	this->name = "\"ScavTrap\"";
 	this->Hit_points = 100;
 	this->Attack_damage = 20;
 	this->Energy_points = 50;

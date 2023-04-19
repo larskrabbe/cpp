@@ -4,11 +4,13 @@
 
 void	Fixed::_setRawBits( int num)
 {
+	std::cout << "setRawsBits("<< num <<")" << "for address = " << this << std::endl;
 	this->_value = num;
 }
 
-int		Fixed::_getRawBits( void )
+int		Fixed::_getRawBits( void ) const
 {
+	std::cout << "getRawsBits("<< this->_value <<")" << "from address = " << this << std::endl;
 	return (this->_value);
 }
 
@@ -24,27 +26,31 @@ int		Fixed::_toInt( void ) const
 
 Fixed::Fixed()
 {
+	std::cout << "Construct(Default) Fixed_Class at address = " << this << std::endl;
 	this->_value = 0;
 }
 
 Fixed::Fixed( int num )
 {
+	std::cout << "Construct(Int) Fixed_Class at address = " << this << std::endl;
 	this->_value = num  << this->_frac;
 }
 
 Fixed::Fixed( float num )
-{	
+{
+	std::cout << "Construct(Float) Fixed_Class at address = " << this << std::endl;
 	this->_value =(int)roundf (num * (1 << this->_frac));
 }
 
 Fixed::Fixed(const Fixed &a) : _value(a._value)
 {
-	this->_value = a._value;
+	std::cout << "Construct(Copy) Fixed_Class at address = " << this << std::endl;
+	*this = a;
 }
 
 Fixed::~Fixed()
 {
-	
+	std::cout << "Deconstruct Fixed_Class at address = " << this << std::endl;
 }
 
 std::ostream& operator<< (std::ostream &os, const Fixed& a)
@@ -55,6 +61,7 @@ std::ostream& operator<< (std::ostream &os, const Fixed& a)
 
 Fixed & Fixed::operator= (const Fixed& a)
 {
-	this->_value = a._value;
+	std::cout << "Copy assignment operator called of address = " << this << " equeal address = " << &a << std::endl;
+	this->_value = a._getRawBits();
 	return (*this);
 }

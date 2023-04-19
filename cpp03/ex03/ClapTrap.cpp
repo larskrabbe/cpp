@@ -88,7 +88,8 @@ bool	ClapTrap::HealthCheck( void )
 
 ClapTrap::ClapTrap()
 {
-	this->name = "\"Bitch\"";
+	std::cout << "Clap "<< this << std::endl;
+	this->name = "\"ClapTrap\"";
 	this->Hit_points = 10;
 	this->Attack_damage = 0;
 	this->Energy_points = 10;

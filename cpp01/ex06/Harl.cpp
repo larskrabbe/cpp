@@ -3,51 +3,60 @@
 #include	<iostream>
 
 
+#ifndef DEBUG_MSG
+# define DEBUG_MSG "This is the debug msg"
+#endif
+
+#ifndef INFO_MSG
+# define INFO_MSG "This is the Info msg"
+#endif
+
+#ifndef WARNING_MSG
+# define WARNING_MSG "This is the Warning msg"
+#endif
+
+#ifndef ERROR_MSG
+# define ERROR_MSG "This is the ERROR msg"
+#endif
+
 void	Harl::debug ( void )
 {
-	std::cout << "debug" << std::endl;
+	std::cout << DEBUG_MSG << std::endl;
 }
 
 void	Harl::info ( void )
 {
-	std::cout << "info" << std::endl;
-
+	std::cout << INFO_MSG << std::endl;
 }
 
 void	Harl::warning ( void )
 {
-	std::cout << "warning" << std::endl;
+	std::cout << WARNING_MSG << std::endl;
 }
 
 void	Harl::error ( void )
 {
-	std::cout << "error" << std::endl;
+	std::cout << ERROR_MSG << std::endl;
 }
 
-// void	Harl::complain ( std::string level )
-// {
-// 	int j;
-// 	for (size_t i = 0; i < 4; i++)
-// 	if (level == this->member_str[i])
-// 		j = i;
-// 	switch(j)
-// 	{
-// 		case(1):
-// 			(this->*member_ptr[0])();
-// 		case(2):
-// 			(this->*member_ptr[1])();
-// 		case(3):
-// 			(this->*member_ptr[2])();
-// 		case(4):
-// 			(this->*member_ptr[3])();
-// 	}
-// }
-
-void	Harl::complain ( std::string level )
+void	Harl::complain ( void )
 {
-	for (size_t i = 0; i < 4; i++)
-		if (level == this->member_str[i])
-			(this->*member_ptr[i])();
+	switch(min_level)
+	{
+		case(0):
+			debug();
+		case(1):
+			info();
+		case(2):
+			warning();
+		case(3):
+			error();
+			break;
+		default:
+		{
+			std::cout << "Random Stuff. I don't care" << std::endl;
+		}
+	}
 }
 
 void	Harl::empty_func (void)
@@ -67,25 +76,16 @@ Harl::Harl(std::string ignore)
 	{
 		this->member_ptr[i] = &Harl::empty_func;
 		if (ignore == this->member_str[i])
+		{
+			min_level = i;
 			break;
+		}
 		i++;
 	}
-	switch(i)
-	{
-		case(0):
-			this->member_ptr[0] = &Harl::debug;
-		case(1):
-			this->member_ptr[1] = &Harl::info;
-		case(2):
-			this->member_ptr[2] = &Harl::warning;
-		case(3):
-			this->member_ptr[3] = &Harl::error;
-			break;
-		default:
-			{
-				std::cout << "default" << std::endl;
-			}
-	}
+	this->member_ptr[0] = &Harl::debug;
+	this->member_ptr[1] = &Harl::info;
+	this->member_ptr[2] = &Harl::warning;
+	this->member_ptr[3] = &Harl::error;
 }
 
 Harl::~Harl()

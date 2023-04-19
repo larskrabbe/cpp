@@ -1,4 +1,4 @@
-NAME = Horde
+NAME = bsp
 
 FLAGS = -Werror -Wall -Wextra -std=c++98
 

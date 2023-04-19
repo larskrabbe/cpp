@@ -13,7 +13,10 @@ class DiamondTrap :public virtual FragTrap , public virtual ScavTrap
 		virtual void			print_action(e_msg msg, std::string);
 		virtual void			print_action(e_msg msg, unsigned int);
 	public:
+		void	whoAmI( void );
+		void	attack(const std::string& Target);
 		DiamondTrap();
+		DiamondTrap(std::string name );
 		DiamondTrap(const DiamondTrap &a);
 		~DiamondTrap();
 		DiamondTrap &operator= (const DiamondTrap& a);

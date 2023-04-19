@@ -18,7 +18,7 @@ int	main( void )
 	bot1.attack("someone");
 	bot1.attack("someone");
 	bot1.attack("someone");
-	bot1.takeDamage(2);
+	bot1.takeDamage(200);
 	bot1.takeDamage(2);
 	bot1.takeDamage(2);
 	bot1.beRepaired(1);

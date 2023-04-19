@@ -10,5 +10,5 @@ int main(int argc, char* argv[])
 		return (0);
 	}
 	Harl peter(argv[1]);
-	peter.complain("Info");
+	peter.complain();
 }

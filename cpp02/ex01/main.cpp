@@ -1,19 +1,20 @@
 #include	<iostream>
 #include	"Fixed.hpp"
 
-int main()
-{
-	{
-		Fixed	data;
-		std::cout << data._getRawBits() << std::endl;
-		data._setRawBits(100);
-		std::cout << data._getRawBits() << std::endl;
-	}
-	{
-		Fixed	data(-20.4f);
-		std::cout << data._toFloat() << std::endl;
-		data = -42;
-		std::cout << data._toInt() << std::endl;
-		std::cout << data << std::endl;
-	}
+int main( void ) {
+	Fixed a;
+	Fixed const b( 10 );
+	Fixed const c( 42.42f );
+	Fixed const d( b );
+	a = Fixed( 1234.4321f );
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a._toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b._toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c._toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d._toInt() << " as integer" << std::endl;
+	return 0;
 }
