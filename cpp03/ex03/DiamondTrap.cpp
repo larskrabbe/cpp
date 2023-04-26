@@ -33,8 +33,11 @@ void	DiamondTrap::print_action(e_msg msg)
 		case(msg_high_five):
 			std::cout << "DiamondTrap " << this->name << " is in need of physical touch" << std::endl;
 		break;
+		case(msg_who_am_i):
+			std::cout << "My Name is " << this->name << " and my ClapTrap name is " << this->ClapTrap::name << std::endl;
+		break;
 		default:
-			std::cout << this->name << " didnt got a message for this action" << std::endl;
+			std::cout << this->name << " didnt got a message for this action" << "Enum = " << msg <<std::endl;
 		break;
 	}
 
@@ -82,21 +85,16 @@ void	DiamondTrap::attack(const std::string& target)
 // 	print_action(msg_high_five);
 // }
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap()
 {
-	std::cout << "Diamond "<< this << std::endl;
-	this->name = "\"DiamondTrap\"";
-	this->Hit_points = 100;
+	this->name = "\"Diamond\"_ClapTrap";
 	this->Attack_damage = 30;
-	this->Energy_points = 100;
 	print_action(msg_default_construct);
 }
 
-DiamondTrap::DiamondTrap(std::string name) : name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(), ScavTrap(), name(name+"_ClapTrap")
 {
-	this->Hit_points = FragTrap::Hit_points;
-	this->Attack_damage = FragTrap::Attack_damage;
-	this->Energy_points = 100;
+	this->Attack_damage = 30;
 	print_action(msg_string_construct);
 }
 
@@ -127,4 +125,5 @@ DiamondTrap& DiamondTrap::operator= (const DiamondTrap& a)
 void	DiamondTrap::whoAmI( void )
 {
 	print_action(msg_who_am_i);
+	// std::cout << this->Energy_points<< std::endl << this->Hit_points<< std::endl << this->Attack_damage << std::endl; 
 }

@@ -87,7 +87,6 @@ void	FragTrap::highFivesGuys( void )
 
 FragTrap::FragTrap()
 {
-	std::cout << "Frag "<< this << std::endl;
 	this->name = "\"FragTrap\"";
 	this->Hit_points = 100;
 	this->Attack_damage = 30;

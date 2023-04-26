@@ -69,7 +69,7 @@ void	ScavTrap::print_action(e_msg msg, unsigned int add)
 // this is just here to pass the eval.
 void	ScavTrap::attack(const std::string& target)
 {
-	std::cout << "Scav attack ::";
+	// std::cout << "Scav attack::";
 	if (this->EnergyCheck() || this->HealthCheck())
 		return ;
 	this->Energy_points--;
@@ -85,7 +85,6 @@ void	ScavTrap::guardGate( void )
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "Scav "<< this << std::endl;
 	this->name = "\"ScavTrap\"";
 	this->Hit_points = 100;
 	this->Attack_damage = 20;
