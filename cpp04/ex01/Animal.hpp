@@ -6,8 +6,6 @@
 #include	"Brain.hpp"
 class Animal
 {
-	private:
-		Brain* Brain;
 	protected:
 		std::string			type;
 	public:

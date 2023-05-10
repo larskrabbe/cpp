@@ -6,13 +6,13 @@ void	Cat::makeSound()
 	std::cout << "UwU" << std::endl;
 }
 
-Cat::Cat():Animal(),_Brain(new Brain())
+Cat::Cat():AAnimal(),_Brain(new Brain())
 {
 	std::cout << "construct Cat" << std::endl;
 	this->type = "Cat";
 }
 
-Cat::Cat(const Cat &a):Animal(),_Brain(new Brain(*a._Brain))
+Cat::Cat(const Cat &a):AAnimal(),_Brain(new Brain(*a._Brain))
 {
 	this->type = a.type;
 	std::cout << "construct Cat" << std::endl;

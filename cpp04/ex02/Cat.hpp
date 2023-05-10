@@ -2,9 +2,9 @@
 #ifndef CLASS_Cat
 # define CLASS_Cat
 
-#include	"Animal.hpp"
+#include	"AAnimal.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 	private:
 		Brain* _Brain;

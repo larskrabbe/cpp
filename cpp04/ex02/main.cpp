@@ -4,6 +4,8 @@
 
 int	main( )
 {
+	// Dog::AAnimal a;
+	// AAnimal b;
 	Dog kitty;
 	kitty.add_idea("Food");
 	kitty.add_idea("Food");

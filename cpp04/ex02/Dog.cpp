@@ -6,13 +6,13 @@ void	Dog::makeSound()
 	std::cout << "UwU" << std::endl;
 }
 
-Dog::Dog():Animal(), _Brain(new Brain())
+Dog::Dog():AAnimal(), _Brain(new Brain())
 {
 	std::cout << "construct Dog" << std::endl;
 	this->type = "Dog";
 }
 
-Dog::Dog(const Dog &a):Animal(), _Brain(new Brain(*a._Brain))
+Dog::Dog(const Dog &a):AAnimal(), _Brain(new Brain(*a._Brain))
 {
 	this->type = a.type;
 	std::cout << "construct Dog" << std::endl;

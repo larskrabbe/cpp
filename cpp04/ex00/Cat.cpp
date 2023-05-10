@@ -8,13 +8,13 @@ void	Cat::makeSound()
 }
 
 
-Cat::Cat()
+Cat::Cat():Animal()
 {
 	std::cout << "construct Cat" << std::endl;
 	this->type = "Cat";
 }
 
-Cat::Cat(const Cat &a)
+Cat::Cat(const Cat &a):Animal()
 {
 	this->type = a.type;
 	std::cout << "construct Cat" << std::endl;
