@@ -24,6 +24,7 @@ void	Bureaucrat::increase_grade( void )
 	catch(const Bureaucrat::Exception& e)
 	{
 		std::cerr << e.message() << std::endl;
+		throw(std::string("Error"));
 	}
 }
 
@@ -39,6 +40,7 @@ void	Bureaucrat::decrease_grade( void )
 	catch(const Bureaucrat::Exception& e)
 	{
 		std::cerr << e.message() << std::endl;
+		throw(std::string("Error"));
 	}
 }
 
@@ -84,11 +86,11 @@ Bureaucrat::Bureaucrat( int grade ) :_name("Nemo")
 	
 	try
 	{
-		if (grade <= HIGHEST_GRADE)
+		if (grade < HIGHEST_GRADE)
 		{
 			throw(Bureaucrat::GradeTooHighException());
 		}
-		else if (grade >= LOWEST_GRADE)
+		else if (grade > LOWEST_GRADE)
 		{
 			throw(Bureaucrat::GradeTooLowException());
 		}
@@ -100,7 +102,7 @@ Bureaucrat::Bureaucrat( int grade ) :_name("Nemo")
 	catch(const Bureaucrat::Exception& e)
 	{
 		std::cerr << e.message() << std::endl;
-		throw();
+		throw(std::string("Error"));
 	}
 
 } 
@@ -114,11 +116,11 @@ Bureaucrat::Bureaucrat( std::string name , int grade ) :_name(name)
 {
 	try
 	{
-		if (grade <= HIGHEST_GRADE)
+		if (grade < HIGHEST_GRADE)
 		{
 			throw(Bureaucrat::GradeTooHighException());
 		}
-		else if (grade >= LOWEST_GRADE)
+		else if (grade > LOWEST_GRADE)
 		{
 			throw(Bureaucrat::GradeTooLowException());
 		}
@@ -130,7 +132,7 @@ Bureaucrat::Bureaucrat( std::string name , int grade ) :_name(name)
 	catch(const Bureaucrat::Exception& e)
 	{
 		std::cerr << e.message() << std::endl;
-			throw(e);
+		throw(std::string("Error"));
 	}
 }
 Bureaucrat::~Bureaucrat()

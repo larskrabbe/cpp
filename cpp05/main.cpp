@@ -3,8 +3,17 @@
 #include	<iostream>
 int main()
 {
-	Bureaucrat bc(149);
-	bc--;
-	std::cout << bc << std::endl;
+	try
+	{
+		Bureaucrat bc(1);
+		bc++;
+		bc--;
+		std::cout << bc << std::endl;
+	}
+	catch(const std::string& str)
+	{
+		std::cerr << str << '\n';
+	}
+	
 	return(0);
 }

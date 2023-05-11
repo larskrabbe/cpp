@@ -35,7 +35,7 @@ public:
 //Exception
 	struct Exception : public std::exception{
 		virtual const std::string message() const
-			{return("Base Exception Class");}};
+			{return("Error");}};
 	struct GradeTooHighException : public Bureaucrat::Exception{
 		const std::string message() const
 			{return("Grade is to High");}};
