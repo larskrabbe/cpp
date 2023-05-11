@@ -2,6 +2,7 @@
 
 #include	"Animal.hpp"
 #include	<iostream>
+#include	"Brain.hpp"
 
 void	Animal::makeSound()
 {
