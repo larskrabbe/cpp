@@ -4,7 +4,7 @@
 #include	<iostream>
 #include	"Brain.hpp"
 
-void	AAnimal::makeSound()
+void	AAnimal::makeSound() const
 {
 	std::cout << "Never gonna give you up" << std::endl;
 }

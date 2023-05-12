@@ -11,7 +11,7 @@ class AAnimal
 		AAnimal();
 		AAnimal(const AAnimal &a);
 	public:
-		virtual void				makeSound();
+		virtual void				makeSound() const = 0;
 		virtual ~AAnimal();
 		AAnimal &operator= (const AAnimal& a);
 };

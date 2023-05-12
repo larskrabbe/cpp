@@ -1,7 +1,7 @@
 #include	"Dog.hpp"
 #include	<iostream>
 
-void	Dog::makeSound()
+void	Dog::makeSound() const
 {
 	std::cout << "UwU" << std::endl;
 }

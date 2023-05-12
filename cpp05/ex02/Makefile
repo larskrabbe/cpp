@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = exe.out
 
 FLAGS = -Werror -Wall -Wextra -std=c++98
 

@@ -10,10 +10,10 @@ class WrongAnimal
 	protected:
 		std::string			type;
 	public:
-		virtual void				makeSound();
+		void				makeSound();
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal &a);
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 		WrongAnimal &operator= (const WrongAnimal& a);
 };
 

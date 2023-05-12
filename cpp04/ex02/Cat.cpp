@@ -1,7 +1,7 @@
 #include	"Cat.hpp"
 #include	<iostream>
 
-void	Cat::makeSound()
+void	Cat::makeSound() const
 {
 	std::cout << "UwU" << std::endl;
 }

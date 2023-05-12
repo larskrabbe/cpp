@@ -9,7 +9,7 @@ class Cat : public AAnimal
 	private:
 		Brain* _Brain;
 	public:
-		void				makeSound();
+		void				makeSound() const;
 		Cat();
 		Cat(const Cat &a);
 		~Cat();

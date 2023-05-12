@@ -6,9 +6,11 @@
 int	main( )
 {
 	Cat* ptr = new Cat;
-	WrongAnimal* wptr = new WrongCat;
-	wptr->makeSound();
+	// WrongAnimal* wptr = new WrongCat;
+	WrongAnimal test;
+	test.makeSound();
+	// wptr->WrongAnimal::makeSound();
 	ptr->makeSound();
-	delete(wptr);
+	// delete(wptr);
 	delete(ptr);
 }
