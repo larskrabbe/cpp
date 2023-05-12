@@ -8,10 +8,10 @@ class Form
 {
 	public:
 	//getter
-		std::string	get_name();
-		bool		get_is_signed();
-		int			get_grade_to_sign();
-		int			get_grade_to_execute();
+		std::string	get_name() const;
+		bool		get_is_signed() const;
+		int			get_grade_to_sign() const;
+		int			get_grade_to_execute() const;
 	// utiels
 		void		beSign(Bureaucrat& bc);
 	private:
@@ -22,6 +22,7 @@ class Form
 	public:
 // de- / constructor
 		Form();
+		Form(std::string name,int grade_to_sign, int grade_to_execute);
 		Form(const Form &a);
 		~Form();
 // operator
@@ -31,11 +32,11 @@ class Form
 		virtual const std::string message() const;
 			// {return("Error");}
 			};
-	struct GradeTooHighException : public Bureaucrat::Exception{
+	struct GradeTooHighException : public Form::Exception{
 		const std::string message() const;
 			// {return("Grade is to High");}
 			};
-	struct GradeTooLowException :   public Bureaucrat::Exception{
+	struct GradeTooLowException :   public Form::Exception{
 		const std::string message() const;
 			// {return("Grade is to Low");}
 			};
@@ -43,5 +44,5 @@ class Form
 #endif
 
 
-int				check_grade(int grade);
-std::ostream&	operator<< ( std::ostream& os, const Form& bc );
+// int				check_grade(int grade);
+std::ostream&	operator<< ( std::ostream& os, const Form& f );

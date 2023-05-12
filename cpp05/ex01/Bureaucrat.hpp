@@ -22,7 +22,7 @@ public:
 	Bureaucrat( Bureaucrat& other );
 	~Bureaucrat();
 //other
-	void	signForm();
+	void		signForm(std::string form_name, std::string reason) const;
 //getter
 	int			get_grade( void ) const; 
 	std::string	get_name( void ) const;

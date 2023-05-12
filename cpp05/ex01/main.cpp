@@ -1,25 +1,36 @@
 
 #include	"Bureaucrat.hpp"
+#include	"Form.hpp"
 #include	<iostream>
 
 
 void block_1()
 {
-	Bureaucrat bc(-2);
-	std::cout << bc << std::endl;
+	Form x("paper",100,50);
+	Bureaucrat bob("bob", 100);
+	x.beSign(bob);
+	std::cout << x << std::endl;
 }
 
 void block_2()
 {
-	Bureaucrat bc(160);
-	std::cout << bc << std::endl;
+	Form x("paper",100,50);
+	Bureaucrat bob("bob", 101);
+	try
+	{
+		x.beSign(bob);
+	}
+	catch(std::exception& e)
+	{
+	}
+	std::cout << x << std::endl;
 }
 
 void block_3()
 {
-	Bureaucrat bc(1);
-	bc++;
-	std::cout << bc << std::endl;
+	Form x("paper",100,160);
+	Bureaucrat bob("bob", 101);
+	x.beSign(bob);
 }
 
 void block_4()
@@ -36,9 +47,9 @@ int main()
 {
 	try
 	{
-		block_4();
+		block_2();
 	}
-	catch(const Bureaucrat::Exception& x)
+	catch(const std::exception & x)
 	{
 		// std::cerr << x.message() << '\n';
 		// no need to print twice

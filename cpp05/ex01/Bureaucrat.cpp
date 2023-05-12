@@ -137,15 +137,27 @@ Bureaucrat::Bureaucrat(Bureaucrat& other) :_name(other._name ), _grade(check_gra
 
 const std::string Bureaucrat::Exception::message() const
 {
-	return("a");
+	return("Error");
 }
 
 const std::string Bureaucrat::GradeTooHighException::message() const
 {
-	return("a");
+	return("Grade is to High");
 }
 
 const std::string Bureaucrat::GradeTooLowException::message() const
 {
-	return("a");
+	return("Grade is to Low");
+}
+
+ void Bureaucrat::signForm(std::string form_name, std::string reason) const
+{
+	if (reason.empty() == true)
+	{
+		std::cout << get_name() << " signed " << form_name <<std::endl;
+	}
+	else
+	{
+		std::cout << get_name() << " couldn’t sign " << form_name << " because " << reason << std::endl;
+	}
 }
