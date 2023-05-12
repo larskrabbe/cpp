@@ -21,6 +21,8 @@ public:
 	Bureaucrat( std::string name , int grade ) ;
 	Bureaucrat( Bureaucrat& other );
 	~Bureaucrat();
+//other
+	void	signForm();
 //getter
 	int			get_grade( void ) const; 
 	std::string	get_name( void ) const;
@@ -48,7 +50,7 @@ public:
 			};
 };
 
-int check_grade(int grade);
-std::ostream& operator<< ( std::ostream& os, const Bureaucrat& bc );
+int				check_grade(int grade);
+std::ostream&	operator<< ( std::ostream& os, const Bureaucrat& bc );
 
 #endif
