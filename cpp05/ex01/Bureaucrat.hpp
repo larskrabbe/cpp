@@ -14,11 +14,12 @@ private:
 	const std::string _name;
 	int			_grade;
 public:
-// constructor
+// de- / constructor
 	Bureaucrat( void );
 	Bureaucrat( std::string name );
 	Bureaucrat( int grade );
-	Bureaucrat( std::string name , int grade) ;
+	Bureaucrat( std::string name , int grade ) ;
+	Bureaucrat( Bureaucrat& other );
 	~Bureaucrat();
 //getter
 	int			get_grade( void ) const; 
@@ -27,23 +28,27 @@ public:
 	void		increase_grade( void );
 	void		decrease_grade( void );
 // operator
-	Bureaucrat&	operator =  (const Bureaucrat& src);
-	Bureaucrat& operator ++ ();
-	Bureaucrat& operator -- ();
+	Bureaucrat&	operator =  ( const Bureaucrat& src );
+	Bureaucrat& operator ++ ( void );
+	Bureaucrat& operator -- ( void );
 	Bureaucrat 	operator ++ ( int );
 	Bureaucrat	operator -- ( int );
 //Exception
 	struct Exception : public std::exception{
-		virtual const std::string message() const
-			{return("Error");}};
+		virtual const std::string message() const;
+			// {return("Error");}
+			};
 	struct GradeTooHighException : public Bureaucrat::Exception{
-		const std::string message() const
-			{return("Grade is to High");}};
+		const std::string message() const;
+			// {return("Grade is to High");}
+			};
 	struct GradeTooLowException :   public Bureaucrat::Exception{
-		const std::string message() const
-			{return("Grade is to Low");}};
+		const std::string message() const;
+			// {return("Grade is to Low");}
+			};
 };
 
+int check_grade(int grade);
 std::ostream& operator<< ( std::ostream& os, const Bureaucrat& bc );
 
 #endif
