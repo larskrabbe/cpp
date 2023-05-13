@@ -1,5 +1,18 @@
 #include	"ShrubberyCreationForm.hpp"
 
+
+
+namespace tree
+{
+	std::string
+	("ooo
+	o000o
+	o000o
+	 ooo
+	  I
+	  ");
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm()_name("ShrubberyCreationForm"),_grade_to_sign(145),_grade_to_execute(137)
 {
 	

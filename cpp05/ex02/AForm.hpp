@@ -8,12 +8,13 @@ class AForm
 {
 	public:
 	//getter
-		std::string	get_name() const;
-		bool		get_is_signed() const;
-		int			get_grade_to_sign() const;
-		int			get_grade_to_execute() const;
+		std::string		get_name() const;
+		bool			get_is_signed() const;
+		int				get_grade_to_sign() const;
+		int				get_grade_to_execute() const;
 	// utiels
-		void		beSign(Bureaucrat& bc);
+		virtual void	form_action() = 0;
+		void			beSign(Bureaucrat& bc);
 	private:
 		const std::string	_name;
 		bool				_is_signed;

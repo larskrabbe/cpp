@@ -4,7 +4,6 @@
 
 #include	"AForm.hpp"
 
-
 class ShrubberyCreationForm:public AForm
 {
 	private:
@@ -14,6 +13,7 @@ class ShrubberyCreationForm:public AForm
 		const int			_grade_to_sign;
 		const int			_grade_to_execute;
 	public:
+		void	form-form_action();
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &a);

@@ -13,6 +13,7 @@ class RobotomyRequestForm:public AForm
 		const int			_grade_to_sign;
 		const int			_grade_to_execute;
 	public:
+		void	form-form_action();
 		RobotomyRequestForm();
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(const RobotomyRequestForm &a);

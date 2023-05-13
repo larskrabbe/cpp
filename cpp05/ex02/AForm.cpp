@@ -92,3 +92,8 @@ std::ostream& operator<< ( std::ostream& os, const AForm& f )
 	os << "And " << f.get_grade_to_execute() << " to be executed";
 	return(os);
 }
+
+void	AForm::form_action()
+{
+
+}

@@ -13,6 +13,7 @@ class PresidentialPardonForm:public AForm
 		const int			_grade_to_sign;
 		const int			_grade_to_execute;
 	public:
+		void	form-form_action();
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(const PresidentialPardonForm &a);
