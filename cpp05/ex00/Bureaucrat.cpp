@@ -134,18 +134,17 @@ Bureaucrat::Bureaucrat(Bureaucrat& other) :_name(other._name ), _grade(check_gra
 
 }
 
-
 const std::string Bureaucrat::Exception::message() const
 {
-	return("a");
+	return("Error");
 }
 
 const std::string Bureaucrat::GradeTooHighException::message() const
 {
-	return("a");
+	return("Grade is to High");
 }
 
 const std::string Bureaucrat::GradeTooLowException::message() const
 {
-	return("a");
+	return("Grade is to Low");
 }

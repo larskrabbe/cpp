@@ -6,6 +6,7 @@
 #include	"ShrubberyCreationForm.hpp"
 #include	"PresidentialPardonForm.hpp"
 #include	"RobotomyRequestForm.hpp"
+#include	"Intern.hpp"
 
 void block_1()
 {
@@ -18,13 +19,11 @@ void block_1()
 
 void block_2()
 {
-	AForm* ptr;
 	ShrubberyCreationForm tree("trees");
-	ptr = &tree;
 	Bureaucrat bob("bob",150);
-	ptr->beSign(bob);
+	tree.beSign(bob);
 	// tree.execute(bob);
-	bob.executeForm(*ptr);
+	bob.executeForm(tree);
 	std::cout << tree << std::endl;
 }
 
@@ -55,12 +54,42 @@ void block_5()
 	std::cout << tree << std::endl;
 }
 
+void block_6()
+{
+	Intern bob;
+	try{
+		bob.makeForm("easdfas","Kittys");
+	}
+	catch(Intern::Exception& e)
+	{
+		std::cout << e.message() << std::endl;
+	}
+}
+
+
+void block_7()
+{
+	Intern bob;
+	AForm* ptr;
+	try{
+		ptr = bob.makeForm("PresidentialPardonForm","Peter");
+	}
+	catch(Intern::Exception& e)
+	{
+		std::cout << e.message() << std::endl;
+		throw(std::exception());
+	}
+	Bureaucrat Bull("Bull",1);
+	ptr->beSign(Bull);
+	Bull.executeForm(*ptr);
+	delete(ptr);
+}
 
 int main()
 {
 	try
 	{
-		block_5();
+		block_7();
 	}
 	catch(const std::exception & x )
 	{
