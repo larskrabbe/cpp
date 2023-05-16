@@ -12,13 +12,13 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter &a);
 		~ScalarConverter();
 		ScalarConverter &operator= (const ScalarConverter& a);
-		void static convert_to_d(std::string arg);
+		// void static convert_to_d(std::string arg);
 	public:
-		static int		errors;
-		static char		_c;
-		static int		_i;
-		static float	_f;
-		static double	_d;
+		// static int		errors;
+		// static char		_c;
+		// static int		_i;
+		// static float	_f;
+		// static double	_d;
 		void			static convert(std::string arg);};
 
 #endif

@@ -187,6 +187,5 @@ void		Bureaucrat::executeForm(const Form& form)
 
 void		Bureaucrat::executeForm(const AForm& form)
 {
-	( void)form;
 	form.execute(*this);
 }
