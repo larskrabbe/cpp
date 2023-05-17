@@ -14,6 +14,7 @@ class ScalarConverter
 		ScalarConverter &operator= (const ScalarConverter& a);
 		// void static convert_to_d(std::string arg);
 	public:
+		const	static int _precision = 1;
 		// static int		errors;
 		// static char		_c;
 		// static int		_i;

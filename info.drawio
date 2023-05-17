@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="c41_z4_GsjBGDIU7O2qk" name="front">
-        <mxGraphModel dx="1889" dy="937" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1752" dy="1678" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -244,43 +244,16 @@
                 <mxCell id="52" value="Text" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1155" y="965" width="50" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="2" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="290" y="1650" width="120" height="80" as="geometry"/>
+                <mxCell id="61" value="&lt;br&gt;&lt;br&gt;&lt;div class=&quot;answercell post-layout--right&quot;&gt;&lt;div class=&quot;s-prose js-post-body&quot;&gt;&lt;h2&gt;static_cast&lt;/h2&gt;&lt;br&gt;&lt;p&gt;&lt;code&gt;static_cast&lt;/code&gt; is used for cases where you basically want to reverse an implicit conversion, with a few restrictions and additions. &lt;code&gt;static_cast&lt;/code&gt;&lt;br&gt; performs no runtime checks. This should be used if you know that you &lt;br&gt;refer to an object of a specific type, and thus a check would be &lt;br&gt;unnecessary. Example:&lt;/p&gt;&lt;br&gt;&lt;pre class=&quot;lang-cpp s-code-block&quot;&gt;&lt;code class=&quot;hljs language-cpp&quot;&gt;&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-type&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;(&lt;span class=&quot;hljs-type&quot;&gt;void&lt;/span&gt; *data)&lt;/span&gt; &lt;/span&gt;{&lt;br&gt;  &lt;span class=&quot;hljs-comment&quot;&gt;// Conversion from MyClass* -&amp;gt; void* is implicit&lt;/span&gt;&lt;br&gt;  MyClass *c = &lt;span class=&quot;hljs-built_in&quot;&gt;static_cast&lt;/span&gt;&amp;lt;MyClass*&amp;gt;(data);&lt;br&gt;  ...&lt;br&gt;}&lt;br&gt;&lt;br&gt;&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{&lt;br&gt;  MyClass c;&lt;br&gt;  &lt;span class=&quot;hljs-built_in&quot;&gt;start_thread&lt;/span&gt;(&amp;amp;func, &amp;amp;c)  &lt;span class=&quot;hljs-comment&quot;&gt;// func(&amp;amp;c) will be called&lt;/span&gt;&lt;br&gt;      .&lt;span class=&quot;hljs-built_in&quot;&gt;join&lt;/span&gt;();&lt;br&gt;}&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;&lt;p&gt;In this example, you know that you passed a &lt;code&gt;MyClass&lt;/code&gt; object, and thus there isn't any need for a runtime check to ensure this.&lt;/p&gt;&lt;br&gt;&lt;h2&gt;dynamic_cast&lt;/h2&gt;&lt;br&gt;&lt;p&gt;&lt;code&gt;dynamic_cast&lt;/code&gt; is useful when you don't know what the &lt;br&gt;dynamic type of the object is. It returns a null pointer if the object &lt;br&gt;referred to doesn't contain the type casted to as a base class (when you&lt;br&gt; cast to a reference, a &lt;code&gt;bad_cast&lt;/code&gt; exception is thrown in that case).&lt;/p&gt;&lt;br&gt;&lt;pre class=&quot;lang-cpp s-code-block&quot;&gt;&lt;code class=&quot;hljs language-cpp&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (JumpStm *j = &lt;span class=&quot;hljs-built_in&quot;&gt;dynamic_cast&lt;/span&gt;&amp;lt;JumpStm*&amp;gt;(&amp;amp;stm)) {&lt;br&gt;  ...&lt;br&gt;} &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; (ExprStm *e = &lt;span class=&quot;hljs-built_in&quot;&gt;dynamic_cast&lt;/span&gt;&amp;lt;ExprStm*&amp;gt;(&amp;amp;stm)) {&lt;br&gt;  ...&lt;br&gt;}&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;&lt;p&gt;You can &lt;strong&gt;not&lt;/strong&gt; use &lt;code&gt;dynamic_cast&lt;/code&gt; for downcast (casting to a derived class) &lt;strong&gt;if&lt;/strong&gt; the argument type is not polymorphic. For example, the following code is not valid, because &lt;code&gt;Base&lt;/code&gt; doesn't contain any virtual function:&lt;/p&gt;&lt;br&gt;&lt;pre class=&quot;lang-cpp s-code-block&quot;&gt;&lt;code class=&quot;hljs language-cpp&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;hljs-title class_&quot;&gt;Base&lt;/span&gt; { };&lt;br&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;hljs-title class_&quot;&gt;Derived&lt;/span&gt; : Base { };&lt;br&gt;&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{&lt;br&gt;  Derived d; Base *b = &amp;amp;d;&lt;br&gt;  &lt;span class=&quot;hljs-built_in&quot;&gt;dynamic_cast&lt;/span&gt;&amp;lt;Derived*&amp;gt;(b); &lt;span class=&quot;hljs-comment&quot;&gt;// Invalid&lt;/span&gt;&lt;br&gt;}&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;&lt;p&gt;An &quot;up-cast&quot; (cast to the base class) is always valid with both &lt;code&gt;static_cast&lt;/code&gt; and &lt;code&gt;dynamic_cast&lt;/code&gt;, and also without any cast, as an &quot;up-cast&quot; is an implicit conversion (assuming the base class is accessible, i.e. it's a &lt;code&gt;public&lt;/code&gt; inheritance).&lt;/p&gt;&lt;br&gt;&lt;h2&gt;Regular Cast&lt;/h2&gt;&lt;br&gt;&lt;p&gt;These casts are also called C-style cast. A C-style cast is basically&lt;br&gt; identical to trying out a range of sequences of C++ casts, and taking &lt;br&gt;the first C++ cast that works, without ever considering &lt;code&gt;dynamic_cast&lt;/code&gt;. Needless to say, this is much more powerful as it combines all of &lt;code&gt;const_cast&lt;/code&gt;, &lt;code&gt;static_cast&lt;/code&gt; and &lt;code&gt;reinterpret_cast&lt;/code&gt;, but it's also unsafe, because it does not use &lt;code&gt;dynamic_cast&lt;/code&gt;.&lt;/p&gt;&lt;br&gt;&lt;p&gt;In addition, C-style casts not only allow you to do this, but they &lt;br&gt;also allow you to safely cast to a private base-class, while the &lt;br&gt;&quot;equivalent&quot; &lt;code&gt;static_cast&lt;/code&gt; sequence would give you a compile-time error for that.&lt;/p&gt;&lt;br&gt;&lt;p&gt;Some people prefer C-style casts because of their brevity. I use them&lt;br&gt; for numeric casts only, and use the appropriate C++ casts when user &lt;br&gt;defined types are involved, as they provide stricter checking&lt;/p&gt;    &lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fillColor=default;strokeColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1980" y="760" width="560" height="1360" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="5" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="350" y="1800" width="120" height="80" as="geometry"/>
+                <mxCell id="62" value="&lt;a href=&quot;https://stackoverflow.com/questions/28002/regular-cast-vs-static-cast-vs-dynamic-cast&quot;&gt;Link&lt;/a&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;fillColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="2610" y="770" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="4" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="180" y="1760" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="56" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="53" target="55">
+                <mxCell id="63" value="" style="endArrow=classic;html=1;exitX=1.002;exitY=0.034;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="61" target="62">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="350" y="1720" as="sourcePoint"/>
-                        <mxPoint x="400" y="1670" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="57" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="55" target="54">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="360" y="1910" as="sourcePoint"/>
-                        <mxPoint x="410" y="1860" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="58" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="54" target="53">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="430" y="1840" as="sourcePoint"/>
-                        <mxPoint x="480" y="1790" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="59" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1" target="55">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="50" y="1800" as="sourcePoint"/>
-                        <mxPoint x="100" y="1780" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="60" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="380" y="1820" as="sourcePoint"/>
-                        <mxPoint x="290" y="1800" as="targetPoint"/>
+                        <mxPoint x="2480" y="740" as="sourcePoint"/>
+                        <mxPoint x="2560" y="980" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
