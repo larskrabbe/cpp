@@ -3,10 +3,10 @@
 #include	<cmath>
 #include	<iostream>
 #include	<iomanip>
+#include	<limits.h>
+#include	<float.h>
 #include	"ScalarConverter.hpp"
 
-static char g_type = '0';
-static double g_value = 0;
 
 void	print_huge(std::string str)
 {
@@ -17,112 +17,205 @@ void	print_huge(std::string str)
 	return ;
 }
 
-void	print_result()
+void	print_result(char& type, double& value)
 {
-	// std::cout << g_type << " = " << (long long)g_value <<std::endl;
-	if (g_type == '+'||  std::isinf(g_type))
+	switch(type)
 	{
-		print_huge("inf");
-		return;
+		case('e'):
+		{
+			std::cout << "invalid Input" << std::endl; 
+			break;
+		}
+		case('+'):
+		{
+			print_huge("inf");
+			break;
+		}
+		case('-'):
+		{
+			print_huge("-inf");
+			break;
+		}
+		case('n'):
+		{
+			print_huge("nan");
+			break;
+
+		}
+		case('r'):
+		{
+			std::cout << "Value is outside double range" << std::endl;
+		}
+		default:
+		{
+
+
+			if ( value > INT8_MAX || value < INT8_MIN)
+				std::cout << "char: type converssion not possible "
+			else if (isprint(value) == true )
+				std::cout << "char: '"<< static_cast<char>(value) << "'"<< std::endl;
+			else
+				std::cout << "char: "<< "Non displayable" << std::endl;
+			if (value > INT32_MAX || value < INT32_MIN)
+				std::cout << "int: type converssion not possible " << std::endl;
+			else
+				std::cout << "int: "<< static_cast<int>(value) << std::endl;
+			if (type == 'd')
+				std::cout << "float: type converssion not possible " << std::endl;
+			else
+				std::cout << "float: "  << std::setprecision(1) << std::fixed << static_cast<float>(value) << "f"<< std::endl;
+			std::cout << "double: " << std::setprecision(1) << std::fixed << static_cast<double>(value) << std::endl;
+		}
 	}
-	else if(g_type == '-' ||  g_value == HUGE_VAL)
-	{
-		print_huge("-inf");
-		return;		
-	}
-	else if (g_type == 'n' || g_value == NAN)
-	{
-		print_huge("nan");
-		return;				
-	}
-	if (isprint(g_value) == true)
-		std::cout << "char: '"<< static_cast<char>(g_value) << "'"<< std::endl;
-	else
-		std::cout << "char: "<< "Non displayable" << std::endl;
-	if (g_value > INT32_MAX || g_value < INT32_MIN)
-		std::cout << "int: type converssion not possible " << std::endl;
-	else
-		std::cout << "int: "<< static_cast<int>(g_value) << std::endl;
-	if (g_type == 'd')
-		std::cout << "float: type converssion not possible " << std::endl;
-	else
-		std::cout << "float: " << std::fixed << std::setprecision(ScalarConverter::_precision) << static_cast<float>(g_value) << "f"<< std::endl;
-	std::cout << "double: "<< static_cast<double>(g_value) << std::endl;
 }
 
-void	check_type(const std::string arg)
+void	check_type(const std::string arg, char& type, double& value)
 {
 	if (arg.size() == 0)
 		return;
 	{
 		char *endptr = NULL;
-		g_value = strtod(arg.c_str(),&endptr);
+		value = strtod(arg.c_str(),&endptr);
 	}
 	if (arg.size() == 1)
 	{
 		if (isdigit((char)arg[0]) == false)
 		{
-			g_type = 'c';
-			g_value = arg[0];
+			type = 'c';
+			value = arg[0];
 		}
 		else
 		{
-			g_type = 'i';
-			g_value = arg[0] - '0';
+			type = 'i';
+			value = arg[0] - '0';
 		}
 		return;
 	}
 	{
-		if (arg.compare("nan") == false || arg.compare("nanf")  == false)
-			g_type = 'n';
-		else if (arg.compare("+inf") == false  || arg.compare("+inff") == false  ||arg.compare("inf") == false  || arg.compare("inff") == false )
-			g_type = '+';
-		else if  (arg.compare("-inf") == false || arg.compare("-inff") == false )
-			g_type = '-';
+		if (arg.compare("nan") == 0 || arg.compare("nanf")  == 0 || isnan(value))
+			type = 'n';
+		else if (arg.compare("+inf") == 0  || arg.compare("+inff") == 0  ||arg.compare("inf") == 0  || arg.compare("inff") == 0 )
+			type = '+';
+		else if  (arg.compare("-inf") == 0 || arg.compare("-inff") == 0 )
+			type = '-';
 	}
-	if (g_type != '0')
+	if (type != '0')
 	{
 		return;
 	}
 	{
 		char *endptr = NULL;
 		strtol(arg.c_str(),&endptr,10);
-		if (*endptr == '\0')
+		if (*endptr == '\0' && errno != ERANGE)
 		{
-			g_type = 'i';
-			g_value = strtod(arg.c_str(),&endptr);
+			type = 'i';
+			value = strtod(arg.c_str(),&endptr);
+			std::cout << "here" << std::endl;
 			return;
 		}
 	}
 	{
 		char *endptr = NULL;
 		float f = strtof(arg.c_str(),&endptr);
-		if (f != HUGE_VALF && ((*endptr == 'f' && endptr[1] == '\0') || *endptr == '\0'))
+		if (f != HUGE_VALF && ((*endptr == 'f' && endptr[1] == '\0') || *endptr == '\0') && errno != ERANGE)
  		{
-			g_type = 'f';
-			g_value = f;
+			type = 'f';
+			value = f;
 			return;
 		}
 	}
 	{
 		char *endptr = NULL;
 		double d = strtod(arg.c_str(),&endptr);
-		if (*endptr == '\0')
+		if(errno == ERANGE)
 		{
-			g_type = 'd';
-			g_value = d;
+			type = 'r';
+		}
+		else if (*endptr == '\0')
+		{
+			type = 'd';
+			value = d;
 			if (d == HUGE_VAL)
-				g_type = '+';
+				type = '+';
 			return;
 		}
+		else
+			type = 'e';
 	}
 }
 
 void	ScalarConverter::convert(std::string arg)
 {
-	g_value = 0;
-	g_type = '0';
-	check_type(arg);
-	print_result();
-	g_type = '0';
+	char type = '0';
+	double value = 0;
+	check_type(arg, type, value);
+	print_result(type, value);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ScalarConverter::ScalarConverter()
+{
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &a)
+{
+	(void)a;
+}
+
+ScalarConverter::~ScalarConverter()
+{
+}
+
+ScalarConverter& ScalarConverter::operator= (const ScalarConverter& a)
+{
+	(void)a;
+	return (*(this));
 }
