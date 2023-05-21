@@ -51,7 +51,7 @@ void	print_result(char& type, double& value)
 
 
 			if ( value > INT8_MAX || value < INT8_MIN)
-				std::cout << "char: type converssion not possible "
+				std::cout << "char: type converssion not possible ";
 			else if (isprint(value) == true )
 				std::cout << "char: '"<< static_cast<char>(value) << "'"<< std::endl;
 			else
