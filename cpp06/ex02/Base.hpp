@@ -2,7 +2,7 @@
 
 class Base
 {
-private:
+protected:
 	Base();
 public:
 	virtual ~Base();
