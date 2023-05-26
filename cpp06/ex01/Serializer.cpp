@@ -3,16 +3,15 @@
 #include	"Serializer.hpp"
 
 
-uintptr_t	Serializer::serialize(Data* ptr)
+void*	Serializer::serialize(Data* ptr)
 {
-	return(static_cast<uintptr_t>((size_t)ptr)); 
+	return(static_cast<void*>(ptr)); 
 }
 
-Data* 		Serializer::deserialize(uintptr_t raw)
+Data* 		Serializer::deserialize(void* raw)
 {
 	return(static_cast<Data*>((void*)raw));
 }
-
 
 Serializer::Serializer()
 {

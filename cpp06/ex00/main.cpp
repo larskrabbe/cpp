@@ -1,9 +1,13 @@
 
 #include	"ScalarConverter.hpp"
+#include	<iostream>
 
-
-int main()
+int main(int argc, char* argv[])
 {
+	if (argc != 2)
+		std::cout << "ERROR INVALID INPUT " << std::endl << "<./exe.out> <string>" << std::endl;
+	else
+		ScalarConverter::convert(argv[1]);
 	// needs inout protection arg 1 3
 	// ScalarConverter::convert("nan");
 	// ScalarConverter::convert("inf");
@@ -24,6 +28,6 @@ int main()
 	// ScalarConverter::convert("5.0");
 	// ScalarConverter::convert("-10");
 	// ScalarConverter::convert("-42.42f");
-	ScalarConverter::convert("2147483647");
+	// ScalarConverter::convert("2147483647");
 	return (0);
 }

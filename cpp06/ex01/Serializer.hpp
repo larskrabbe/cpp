@@ -10,9 +10,9 @@ class Serializer
 private:
 	Serializer();
 	~Serializer();
+	static void*		serialize(Data* ptr);
 public:
-	static Data* 		deserialize(uintptr_t raw);
-	static uintptr_t	serialize(Data* ptr);
+	static Data* 		deserialize(void* raw);
 };
 
 

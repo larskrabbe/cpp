@@ -7,9 +7,9 @@ int main()
 {
 	Data d;
 	d.str.append("hello world");
-	size_t a = Serializer::serialize(&d);
-	std::cout << a << std::endl;
-	std::cout << (size_t)&d << std::endl;
-	Data* p = Serializer::deserialize(a);
+	void* ptr = Serializer::serialize(&d);
+	std::cout << ptr << std::endl;
+	Data* data = Serializer::deserialize(ptr);
+	std::cout << &d << std::endl;
 	std::cout << p->str << std::endl;
 }
