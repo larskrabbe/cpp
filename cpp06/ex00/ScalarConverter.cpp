@@ -118,7 +118,7 @@ void	check_type(const std::string arg, char& type, double& value)
 		char *endptr = NULL;
 		float f = strtof(arg.c_str(),&endptr);
 		if (f != HUGE_VALF && ((*endptr == 'f' && endptr[1] == '\0') || *endptr == '\0') && errno != ERANGE)
- 		{
+		{
 			type = 'f';
 			value = f;
 			return;
