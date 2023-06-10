@@ -11,8 +11,8 @@ private:
 	Serializer();
 	~Serializer();
 public:
-	static Data* 		deserialize(uintptr_t raw);
-	static uintptr_t	serialize(Data* ptr);
+	static void*		serialize(Data* ptr);
+	static Data* 		deserialize(void* raw);
 };
 
 

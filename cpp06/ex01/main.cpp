@@ -7,9 +7,10 @@ int main()
 {
 	Data d;
 	d.str.append("hello world");
-	size_t a = Serializer::serialize(&d);
-	std::cout << a << std::endl;
-	std::cout << (size_t)&d << std::endl;
-	Data* p = Serializer::deserialize(a);
-	std::cout << p->str << std::endl;
+	void* ptr = Serializer::serialize(&d);
+	std::cout << ptr << std::endl;
+	Data* data = Serializer::deserialize(ptr);
+	std::cout << &d << std::endl;
+	std::cout << static_cast<Data*>(ptr)->str << std::endl;
+	std::cout << data->str << std::endl;
 }

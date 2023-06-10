@@ -6,7 +6,7 @@
 #include	<limits.h>
 #include	<float.h>
 #include	"ScalarConverter.hpp"
-
+#include	<cerrno>
 
 void	print_huge(std::string str)
 {
@@ -45,18 +45,19 @@ void	print_result(char& type, double& value)
 		case('r'):
 		{
 			std::cout << "Value is outside double range" << std::endl;
+			break;
 		}
 		default:
 		{
 
 
-			if ( value > INT8_MAX || value < INT8_MIN)
-				std::cout << "char: type converssion not possible ";
+			if ( value > CHAR_MAX || value < CHAR_MIN)
+				std::cout << "char: type converssion not possible "<< std::endl;
 			else if (isprint(value) == true )
-				std::cout << "char: '"<< static_cast<char>(value) << "'"<< std::endl;
+				std::cout << "char: '"<< static_cast<char>(value) << "'" << std::endl;
 			else
 				std::cout << "char: "<< "Non displayable" << std::endl;
-			if (value > INT32_MAX || value < INT32_MIN)
+			if (value > INT_MAX || value < INT_MIN)
 				std::cout << "int: type converssion not possible " << std::endl;
 			else
 				std::cout << "int: "<< static_cast<int>(value) << std::endl;
@@ -110,7 +111,7 @@ void	check_type(const std::string arg, char& type, double& value)
 		{
 			type = 'i';
 			value = strtod(arg.c_str(),&endptr);
-			std::cout << "here" << std::endl;
+			// std::cout << "here" << std::endl;
 			return;
 		}
 	}
