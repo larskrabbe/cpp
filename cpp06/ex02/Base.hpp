@@ -1,10 +1,12 @@
 
 
+#ifndef Base_Class
+# define Base_Class
 class Base
 {
 protected:
-	Base();
 public:
+	Base();
 	virtual ~Base();
 };
 
@@ -15,3 +17,5 @@ Base::Base()
 Base::~Base()
 {
 }
+
+#endif
