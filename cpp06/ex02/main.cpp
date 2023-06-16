@@ -2,11 +2,12 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 Base* generate(void)
 {
-		std::cout << "generated: ";
 	switch (rand() % 3)
 	{
 	case 0:
@@ -31,14 +32,14 @@ Base* generate(void)
 
 void identify(Base* target)
 {
-	if (dynamic_cast<A*>(target) != nullptr)
+	if (dynamic_cast<A*>(target) != 0)
 		std::cout << "Pointer has the A Class" << std::endl;
-	else if (dynamic_cast<B*>(target) != nullptr)
+	else if (dynamic_cast<B*>(target) != 0)
 		std::cout << "Pointer has the B Class" << std::endl;
-	else if (dynamic_cast<C*>(target) != nullptr)
+	else if (dynamic_cast<C*>(target) != 0)
 		std::cout << "Pointer has the C Class" << std::endl;
 	else
-		std::cout << "Pointer is not a A B or C class" << std::endl;
+		std::cerr << "Pointer is not a A B or C class" << std::endl;
 }
 
 void identify(Base& target)

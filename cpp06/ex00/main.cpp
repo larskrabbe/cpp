@@ -5,10 +5,12 @@
 int main(int argc, char* argv[])
 {
 	if (argc != 2)
-		std::cout << "ERROR INVALID INPUT " << std::endl << "<./exe.out> <string>" << std::endl;
+		std::cout << "ERROR INVALID INPUT " << std::endl << "<./exe.out> <Number>" << std::endl;
 	else
 		ScalarConverter::convert(argv[1]);
 	// needs inout protection arg 1 3
+	// (void)argv;
+	// (void)argc;
 	// ScalarConverter::convert("nan");
 	// ScalarConverter::convert("inf");
 	// ScalarConverter::convert("inff");

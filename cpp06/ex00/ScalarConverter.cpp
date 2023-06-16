@@ -88,7 +88,7 @@ void	check_type(const std::string arg, char& type, double& value)
 		else
 		{
 			type = 'i';
-			value = arg[0] - '0';
+			value = (int)(arg[0] - '0');
 		}
 		return;
 	}
@@ -137,7 +137,7 @@ void	check_type(const std::string arg, char& type, double& value)
 			type = 'd';
 			value = d;
 			if (d == HUGE_VAL)
-				type = '+';
+				type = '+'; 		
 			return;
 		}
 		else
