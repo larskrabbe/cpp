@@ -2,60 +2,79 @@
 #include <string>
 #include <iostream>
 
-// void	check_leaks(void)
-// {
-// 	system("leaks Array");
-// }
-// atexit(check_leaks);
+
+
+
+template<typename t>
+t scope(t test)
+{
+	{
+		{
+			// t test;
+			test = test + 1;
+		}
+	}
+	return (test);
+}
 
 int main(void) 
 {
-	Array<std::string> hello(3);
-	hello[0] = "Hello";
-	hello[1] = "World";
-	hello[2] = "Welcome";
-
-	for (std::size_t i = 0 ; i < hello.size() ; ++i)
-		std::cout << hello[i] << " ";
-	std::cout << "\n-----" << std::endl;
-	
-	Array<std::string> bye(hello);
-	for (std::size_t i = 0 ; i < bye.size() ; ++i)
-	std::cout << bye[i] << " ";
-	std::cout << std::endl;
-	try {
-		bye[3] = "Danger zone";
-	} 
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "\n-----" << std::endl;
-	
-	Array<std::string> hallo(5);
-	hallo = hello;
-	for (std::size_t i = 0 ; i < hallo.size() ; ++i)
-		std::cout << hallo[i] << " ";
-	std::cout << std::endl;
-	try {
-		hallo[3] = "Danger zone";
-	} 
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "\n-----" << std::endl;
-
-	Array<int> integers(5);
-	for (std::size_t i = 0 ; i < integers.size() ; ++i)
-		integers[i] = i * 2;
-	for (std::size_t i = 0 ; i < integers.size() ; ++i)
-		std::cout << integers[i] << " ";
-	std::cout << std::endl;
-	try {
-		integers[6] = 42;
-	} 
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
+	scope( 3 );
 	return 0;
 }
+
+/*
+#include <iostream>
+#include <Array.hpp>
+
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
+}
+*/

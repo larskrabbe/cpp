@@ -1,20 +1,5 @@
+#include	"Array.hpp"
 
-#ifndef CLASS_Array
-# define CLASS_Array
-
-
-template<class type>
-class Array
-{
-	private:
-		type* 		_array;
-		unsigned int _size;
-	public:
-		Array();
-		Array(const Array &a);
-		~Array();
-		Array &operator= (const Array& a);
-};
 
 template<typename type>
 type* copy_array(type* target, unsigned int len)
@@ -32,14 +17,9 @@ type* copy_array(type* target, unsigned int len)
 }
 
 template<typename type>
-Array<type>::Array():_array(0),_size(0)
+Array<type>::Array()
 {
-}
-
-template<typename type>
-Array<type>::Array(unsigned int n):_array(0),_size(n)
-{
-	_array = new type[n];
+	
 }
 
 template<typename type>
@@ -57,12 +37,5 @@ Array<type>::~Array()
 template<typename type>
 Array<type>& Array<type>::operator= (const Array<type>& a)
 {
-	if (_size == 0)
-		delete[] _array;
-	_array = copy_array(a._array, _size); //tmp
-	_size = a._size;
 	return (*(this));
 }
-
-
-#endif
