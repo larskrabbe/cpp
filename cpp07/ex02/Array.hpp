@@ -11,58 +11,11 @@ class Array
 		unsigned int _size;
 	public:
 		Array();
+		Array(unsigned int n	);
 		Array(const Array &a);
 		~Array();
 		Array &operator= (const Array& a);
 };
-
-template<typename type>
-type* copy_array(type* target, unsigned int len)
-{
-	type* copy = 0;
-	if (target == 0 || len == 0)
-		return(copy);
-	else
-		copy = new type[len];
-	for ( unsigned int i = 0; i < len; i++)
-	{
-		target[i] = copy[i];
-	}
-	return (copy);
-}
-
-template<typename type>
-Array<type>::Array():_array(0),_size(0)
-{
-}
-
-template<typename type>
-Array<type>::Array(unsigned int n):_array(0),_size(n)
-{
-	_array = new type[n];
-}
-
-template<typename type>
-Array<type>::Array(const Array &a)
-{
-	
-}
-
-template<typename type>
-Array<type>::~Array()
-{
-	
-}
-
-template<typename type>
-Array<type>& Array<type>::operator= (const Array<type>& a)
-{
-	if (_size == 0)
-		delete[] _array;
-	_array = copy_array(a._array, _size); //tmp
-	_size = a._size;
-	return (*(this));
-}
 
 
 #endif

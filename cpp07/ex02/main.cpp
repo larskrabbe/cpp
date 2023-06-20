@@ -19,7 +19,9 @@ t scope(t test)
 
 int main(void) 
 {
-	scope( 3 );
+	// scope( 3 );
+    
+    Array<int> int_array;
 	return 0;
 }
 
