@@ -1,35 +1,15 @@
+#include <iostream>
 #include "Array.hpp"
-#include <string>
-#include <iostream>
+#include <cstdlib>
+// int main()
+// {
+//     Array<int> a(4);
+//     a[1] = 10;
+//     std::cout << a[1] << std::endl;
+// }
 
 
-
-
-template<typename t>
-t scope(t test)
-{
-	{
-		{
-			// t test;
-			test = test + 1;
-		}
-	}
-	return (test);
-}
-
-int main(void) 
-{
-	// scope( 3 );
-    
-    Array<int> int_array;
-	return 0;
-}
-
-/*
-#include <iostream>
-#include <Array.hpp>
-
-#define MAX_VAL 750
+#define MAX_VAL 10
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -46,10 +26,11 @@ int main(int, char**)
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
-
+    Array<int> tmp;
+    tmp = numbers;
     for (int i = 0; i < MAX_VAL; i++)
     {
-        if (mirror[i] != numbers[i])
+        if (mirror[i] != tmp[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;
             return 1;
@@ -71,12 +52,10 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
     for (int i = 0; i < MAX_VAL; i++)
     {
-        numbers[i] = rand();
+        tmp[i] = rand();
     }
     delete [] mirror;//
     return 0;
 }
-*/

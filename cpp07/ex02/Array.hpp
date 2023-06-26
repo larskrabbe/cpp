@@ -1,21 +1,36 @@
 
+#include	<iostream>
+#include	<exception>
+
 #ifndef CLASS_Array
 # define CLASS_Array
 
-
-template<class type>
+template<typename type>
+type* copy_array(type* target, unsigned int len);
+template<typename type>
 class Array
 {
 	private:
 		type* 		_array;
 		unsigned int _size;
 	public:
-		Array();
-		Array(unsigned int n	);
-		Array(const Array &a);
-		~Array();
-		Array &operator= (const Array& a);
+		Array():_array(0),_size(0)
+			{}
+		Array(unsigned int n):_array(0),_size(n)
+			{_array = new type[n];}
+		Array(const Array &copy):_array(copy_array(copy._array,copy._size)),_size(copy._size)
+			{}
+		~Array()
+			{delete[] (_array);}
+		unsigned int	size()
+			{return (_size);}
+		Array&	operator= (const Array& a);
+		type&	operator[] (int n) const;
+		struct out_of_range : public std::exception
+			{const char* what() const throw ()
+				{return ("value is outside of range");}};
 };
 
+#include	"Array.tpp"
 
 #endif

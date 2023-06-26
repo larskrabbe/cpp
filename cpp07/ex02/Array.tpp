@@ -11,36 +11,23 @@ type* copy_array(type* target, unsigned int len)
 		copy = new type[len];
 	for ( unsigned int i = 0; i < len; i++)
 	{
-		target[i] = copy[i];
+		copy[i] = target[i];
 	}
 	return (copy);
 }
 
 template<typename type>
-Array<type>::Array():_array(0),_size(0)
+type&	Array<type>::operator[] (int n) const
 {
-}
-
-template<typename type>
-Array<type>::Array(unsigned int n):_array(0),_size(n)
-{
-	_array = new type[n];
-}
-
-template<typename type>
-Array<type>::Array(const Array &a):_array(copy_array(a._array,a._size)),_size(a._size)
-{ 
-}
-
-template<typename type>
-Array<type>::~Array()
-{
-	
+	if (n < 0 || n >= (int)this->_size)
+		throw(Array<type>::out_of_range());
+	return _array[n];
 }
 
 template<typename type>
 Array<type>& Array<type>::operator= (const Array<type>& a)
 {
+	(void)a;
 	if (_size == 0)
 		delete[] _array;
 	_size = a._size;
