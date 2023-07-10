@@ -26,9 +26,6 @@ class Array
 			{return (_size);}
 		Array&	operator= (const Array& a);
 		type&	operator[] (int n) const;
-		struct out_of_range : public std::exception
-			{const char* what() const throw ()
-				{return ("value is outside of range");}};
 };
 
 #include	"Array.tpp"

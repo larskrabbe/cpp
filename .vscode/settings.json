@@ -65,6 +65,13 @@
 		"utility": "cpp",
 		"vector": "cpp",
 		"__functional_base_03": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"*.tcc": "cpp",
+		"clocale": "cpp",
+		"list": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"*.tpp": "cpp"
 	}
 }
