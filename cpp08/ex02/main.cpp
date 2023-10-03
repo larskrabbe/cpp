@@ -55,8 +55,7 @@ int main(void)
 	mstack_copy.push(56);
 	mstack_copy.push(66);
 	mstack_copy.push(76);
-	MutantStack<int>::iterator mstack_cpy_itr = mstack_copy.begin();
-	for (; mstack_cpy_itr != mstack_copy.end(); mstack_cpy_itr++)
+	for (	MutantStack<int>::iterator mstack_cpy_itr = mstack_copy.begin(); mstack_cpy_itr != mstack_copy.end(); mstack_cpy_itr++)
 		std::cout << *mstack_cpy_itr << std::endl;
 	return 0;
 }

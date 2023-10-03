@@ -1,0 +1,13 @@
+
+#include	<deque>
+
+
+
+int main()
+{
+
+
+
+
+
+}
