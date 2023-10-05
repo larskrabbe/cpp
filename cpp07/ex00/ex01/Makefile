@@ -4,7 +4,7 @@ FLAGS = -Werror -Wall -Wextra -std=c++98
 
 CC = c++
 
-all: 
+all:
 	$(CC) $(FLAGS) *.cpp  -o $(NAME)
 
 clean:
