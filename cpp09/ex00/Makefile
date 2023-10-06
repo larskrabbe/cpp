@@ -1,18 +1,27 @@
 NAME = btc
 
-FLAGS = -Werror -Wall -Wextra -std=c++98
+SRC =  BTC.cpp   main.cpp 
 
-CC = c++
+OBJ = $(SRC:.cpp=.o)
 
-all: *.cpp
-	$(CC) $(FLAGS) *.cpp  -o $(NAME)
+COMPILE = c++
+
+FLAGS = -Wall -Wextra -Werror -std=c++98
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(COMPILE) $(FLAGS) $^ -o $@
+
+%.o: %.cpp | obj
+	$(COMPILE) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(NAME)
+	rm -rf $(OBJ)
 
 fclean: clean
+	rm -r $(NAME)
 
-run: all
-	./$(NAME)
+re: fclean all
 
-re:clean all
+.PHONY: all clean fclean re
