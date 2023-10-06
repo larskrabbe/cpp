@@ -56,8 +56,8 @@ void creating_pairs(const container& numbers, pair_container& pairs)
                 tmp.first = *next;
                 tmp.second = *iter;
             }
-            ++iter;
-            ++iter;
+            ++++iter;
+            // ++iter;
         }
         else
         {
@@ -282,8 +282,8 @@ int main(int argc, char** argv)
 		std::deque<int> sorted_deq = deque_f(deq);
 		std::cout << "After : ";
 		print(sorted_vec);		
-		std::cout << "deq = " << timeval_to_ll(&time,&vec_time)  << std::endl;
-		std::cout << "vec = " << timeval_to_ll(&timeb,&deq_time) << std::endl;
+		std::cout << "vec = " << timeval_to_ll(&time,&vec_time)  << std::endl;
+		std::cout << "deq = " << timeval_to_ll(&timeb,&deq_time) << std::endl;
 		int o = 0;
 		for (size_t i = 0; i < sorted_vec.size()-1; i++)
 		{
